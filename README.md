@@ -4,13 +4,13 @@ Repositorio de la práctica 1 de IPM, curso 2021.
 
 ## Miembros del grupo
 
-  * Nombre:
-  * Apellidos:
-  * Login UDC:
-  * Login Github:
+  * Nombre: Diego
+  * Apellidos: Seoane Gonzalez
+  * Login UDC: d.seoane.gonzalez
+  * Login Github: Seoane8
   
-  * Nombre:
-  * Apellidos:
-  * Login UDC:
-  * Login Github:
+  * Nombre: Guillermo Santiago
+  * Apellidos: Somoza Morales
+  * Login UDC: g.somoza
+  * Login Github: GuilleSSM
 
