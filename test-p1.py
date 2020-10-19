@@ -22,22 +22,22 @@ def show_not_passed(e):
 Ctx = namedtuple("Ctx", "path process app")
 
 def given_he_lanzado_la_aplicacion(ctx):
-		process, app = e2e.run(ctx.path)
-		assert app is not None
-		return Ctx(path = ctx.path, process = process, app = app)
+	process, app = e2e.run(ctx.path)
+	assert app is not None
+	return Ctx(path = ctx.path, process = process, app = app)
 
 def when_pulso_el_boton_3M(ctx):
 	gen = (node for _path, node in e2e.tree(ctx.app) if node.get_role_name() == 'toggle button' and node.get_name() == '3M')
 	boton = next(gen, None)
 	assert boton is not None
-	e2e.do_action(boton, 'toggle')
+	e2e.do_action(boton, 'click')
 	return ctx
 
 def when_pulso_el_boton_Asc(ctx):
 	gen = (node for _path, node in e2e.tree(ctx.app) if node.get_role_name() == 'toggle button' and node.get_name() == 'Asc')
 	boton = next(gen, None)
 	assert boton is not None
-	e2e.do_action(boton, 'toggle')
+	e2e.do_action(boton, 'click')
 	return ctx
 
 def when_he_realizado_la_seleccion_intervalo(ctx):
@@ -62,24 +62,39 @@ if __name__ == '__main__':
     initial_ctx = Ctx(path= sut_path, process= None, app= None)
 
     show("""
-    GIVEN he lanzado la aplicacion
-    WHEN pulso el boton	3M
-    AND WHEN pulso el boton Asc
-    THEN Muestra los resultados apropiados
+    	GIVEN he lanzado la aplicacion
     	""")
     ctx = initial_ctx
     try:
     	ctx = given_he_lanzado_la_aplicacion(ctx)
+    	show_passed()
+    except Exception as e:
+    	show_not_passed(e)
+    
+    show("""
+    	GIVEN he lanzado la aplicacion
+    	WHEN pulso el boton	3M
+    	AND WHEN pulso el boton Asc
+    	""")
+
+    try:
     	ctx = when_pulso_el_boton_3M(ctx)
     	ctx = when_pulso_el_boton_Asc(ctx)
-    	ctx = when_he_realizado_la_seleccion_intervalo(ctx)
-    	ctx = when_he_realizado_la_seleccion_tonos(ctx)
+    	show_passed()
+    except Exception as e:
+    	show_not_passed(e)
+
+    show("""
+    	THEN Muestra los resultados apropiados
+    """)
+
+
+    try:
     	ctx = when_he_realizado_la_seleccion_resultado1(ctx)
     	show_passed()
     except Exception as e:
-    	show_not_passed
+    	show_not_passed(e)
     e2e.stop(ctx.process)
-
 
 
 
