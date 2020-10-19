@@ -27,17 +27,17 @@ def given_he_lanzado_la_aplicacion(ctx):
 		return Ctx(path = ctx.path, process = process, app = app)
 
 def when_pulso_el_boton_3M(ctx):
-	gen = (node for _path, node in e2e.tree(ctx.app) if node.get_role_name() == 'push button' and node.get_name() == '3M')
+	gen = (node for _path, node in e2e.tree(ctx.app) if node.get_role_name() == 'toggle button' and node.get_name() == '3M')
 	boton = next(gen, None)
 	assert boton is not None
-	e2e.do_action(boton, 'click')
+	e2e.do_action(boton, 'toggle')
 	return ctx
 
 def when_pulso_el_boton_Asc(ctx):
-	gen = (node for _path, node in e2e.tree(ctx.app) if node.get_role_name() == 'push button' and node.get_name() == 'Asc')
+	gen = (node for _path, node in e2e.tree(ctx.app) if node.get_role_name() == 'toggle button' and node.get_name() == 'Asc')
 	boton = next(gen, None)
 	assert boton is not None
-	e2e.do_action(boton, 'click')
+	e2e.do_action(boton, 'toggle')
 	return ctx
 
 def when_he_realizado_la_seleccion_intervalo(ctx):
