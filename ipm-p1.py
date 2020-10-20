@@ -48,12 +48,13 @@ class IntervalWindow(Gtk.Window):
 
         tree = Gtk.TreeView(self.songs_liststore)
         renderer = Gtk.CellRendererText()
-        column = Gtk.TreeViewColumn("Title", renderer, text=0)
-        tree.append_column(column)
-        column = Gtk.TreeViewColumn("Link", renderer, text=1)
+        column = Gtk.TreeViewColumn("Title", renderer, markup=0)
         tree.append_column(column)
         column = Gtk.TreeViewColumn("Favorite", renderer, text=2)
         tree.append_column(column)
+
+        selection = tree.get_selection()
+        selection.connect("changed", self.on_link_selection)
 
         vbox.add(hbox1)
         vbox.add(hbox2)
@@ -119,10 +120,20 @@ class IntervalWindow(Gtk.Window):
 
         asc_des = "ascendente" if asc_des=='Asc' else "descendente"
         
-        self.tittle.set_label(self.intervals[interval][-1]+' '+asc_des)
+        self.tittle.set_markup('<span size="x-large" weight="ultrabold">'+self.intervals[interval][-1]+' '+asc_des+'</span>')
         self.songs_liststore.clear()
         for song in data:
-            self.songs_liststore.append(song)
+            if (song[1] != ""):
+                name = '<span underline="single">'+song[0]+'</span>'
+            else:
+                name = song[0]
+            self.songs_liststore.append([name, song[1], song[2]])
+
+    def on_link_selection(self, selection):
+        model, treeiter = selection.get_selected()
+        if ((treeiter is not None) and (model[treeiter][1] != "")):
+            import webbrowser
+            webbrowser.open(model[treeiter][1])
 
 win = IntervalWindow()
 win.connect('delete-event', Gtk.main_quit)
