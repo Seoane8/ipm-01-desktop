@@ -3,44 +3,40 @@
 from urllib.request import Request, urlopen
 import json
 import gi
-gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk
 
-class IntervalWindow(Gtk.Window):
-    url = "http://127.0.0.1:5000/"
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk
+from gi.repository import GObject
+
+
+class ComboBoxWindow(Gtk.Window):
     interv_active = None
     ad_active = None
+    url = "http://127.0.0.1:5000/"
 
     def __init__(self):
+        Gtk.Window.__init__(self, title="Intervalos")
 
-        self.intervals = self.get_intervals()
+        self.set_border_width(10)
 
-        Gtk.Window.__init__(self, title = "Intervalos")
+        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
 
-        vbox = Gtk.Box(orientation = Gtk.Orientation.VERTICAL,)
-        hbox1 = Gtk.Box(orientation = Gtk.Orientation.HORIZONTAL)
-        hbox2 = Gtk.Box(orientation = Gtk.Orientation.HORIZONTAL)
+        self.intervals=self.get_intervals()
+        intervals_combo = Gtk.ComboBoxText()
+        intervals_combo.set_entry_text_column(0)
+        intervals_combo.connect("changed", self.on_currency_combo_changed)
+        for interval in self.intervals.keys():
+            intervals_combo.append_text(interval)
+
+        hbox.pack_start(intervals_combo, True, True, 0)
         
-        hbox1.set_margin_end(20)
-        hbox1.set_margin_start(20)
-        hbox1.set_margin_top(10)
-        hbox1.set_margin_bottom(5)
-        hbox2.set_margin_end(200)
-        hbox2.set_margin_start(200)
-        hbox2.set_margin_top(5)
-        hbox2.set_margin_bottom(5)
-
-        for i in self.intervals.keys():
-            button = Gtk.ToggleButton(label = i)
-            button.connect("toggled", self.on_interv_button_toggled, i)
-            hbox1.pack_start(button, True, False, 0)
-
         button = Gtk.ToggleButton(label = "Asc")
         button.connect("toggled", self.on_asc_des_button_toggled, "Asc")
-        hbox2.pack_start(button, True, False, 0)
+        hbox.pack_start(button, True, True, 10)
         button = Gtk.ToggleButton(label = "Des")
         button.connect("toggled", self.on_asc_des_button_toggled, "Des")
-        hbox2.pack_start(button, True, False, 0)
+        hbox.pack_start(button, True, True, 0)
 
         self.tittle = Gtk.Label(label = "")
 
@@ -55,8 +51,7 @@ class IntervalWindow(Gtk.Window):
         column = Gtk.TreeViewColumn("Favorite", renderer, text=2)
         tree.append_column(column)
 
-        vbox.add(hbox1)
-        vbox.add(hbox2)
+        vbox.add(hbox)
         vbox.pack_start(self.tittle, False, False, 10)
         vbox.add(tree)
 
@@ -86,16 +81,6 @@ class IntervalWindow(Gtk.Window):
             intervals[i] = [data[i], int_name[i]]
         return intervals
 
-    def on_interv_button_toggled(self, button, name):
-        if(button.get_active()):    
-            if (self.interv_active):
-                self.interv_active.set_active(False)
-            self.interv_active = button
-            if(self.ad_active):
-                self.change_view()
-        else:
-            self.interv_active = None
-
     def on_asc_des_button_toggled(self, button, name):
         if (button.get_active()):
             if (self.ad_active):
@@ -105,12 +90,16 @@ class IntervalWindow(Gtk.Window):
                 self.change_view()
         else:
             self.ad_active = None
-        
-
+    
+    def on_currency_combo_changed(self, combo):
+        self.interv_active = combo.get_active_text()
+        if self.interv_active is not None:
+            if(self.ad_active):
+                self.change_view()
+    
     def change_view(self):
-        interval = self.interv_active.get_label()
+        interval = self.interv_active
         asc_des = self.ad_active.get_label()
-
         req = Request(self.url+'songs/'+interval+'/'+asc_des.lower())
         response =  urlopen(req)
         data = response.read()
@@ -124,8 +113,8 @@ class IntervalWindow(Gtk.Window):
         for song in data:
             self.songs_liststore.append(song)
 
-win = IntervalWindow()
-win.connect('delete-event', Gtk.main_quit)
+
+win = ComboBoxWindow()
+win.connect("destroy", Gtk.main_quit)
 win.show_all()
 Gtk.main()
-
