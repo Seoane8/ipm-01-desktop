@@ -9,15 +9,17 @@ relación con la realización de la práctica.
       * Window
           * VBox
               * HBox
-                  * 12 buttons: un botón para cada intervalo
-              * HBox
+                  * ComboBox: intervalos
                   * Button: ascendente
                   * Button: descendente
               * Label: nombre completo intervalo
               * Label: ejemplo de notas
-              * n labels: una label para cada canción del intervalo
+              * TreeView
+                  * ListStore: lista de canciones
 
 
 # Decisiones
 
-* Usamos botones en vez de un Stack para seleccionar los intervalos, así podemos generar la página dinámicamente a través de la consulta al servidor.
+* Uso de un ComboBox en vez de botones para mejorar la visualización en la ventana y la facilidad para seleccionar un intervalo
+* Uso de una lista para mostrar las canciones porque de esa manera se puede mostrar un título de cada columna y mejora la apariencia
+* Represenatación de los enlaces como subrayado de los títulos de las canciones
