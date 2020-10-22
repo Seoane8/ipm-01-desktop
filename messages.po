@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-22 17:52+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ipm-p1.py:27
+msgid "do"
+msgstr ""
+
+#: ipm-p1.py:27
+msgid "do♯/re♭"
+msgstr ""
+
+#: ipm-p1.py:27
+msgid "re"
+msgstr ""
+
+#: ipm-p1.py:27
+msgid "re♯/mi♭"
+msgstr ""
+
+#: ipm-p1.py:27
+msgid "mi"
+msgstr ""
+
+#: ipm-p1.py:27
+msgid "fa"
+msgstr ""
+
+#: ipm-p1.py:27
+msgid "fa♯/sol♭"
+msgstr ""
+
+#: ipm-p1.py:27
+msgid "sol"
+msgstr ""
+
+#: ipm-p1.py:27
+msgid "sol♯/la♭"
+msgstr ""
+
+#: ipm-p1.py:27
+msgid "la"
+msgstr ""
+
+#: ipm-p1.py:27
+msgid "la♯/si♭"
+msgstr ""
+
+#: ipm-p1.py:27
+msgid "si"
+msgstr ""
+
+#: ipm-p1.py:30
+msgid "Intervalos"
+msgstr ""
+
+#: ipm-p1.py:65
+msgid "Titulo"
+msgstr ""
+
+#: ipm-p1.py:67
+msgid "Favorita"
+msgstr ""
+
+#: ipm-p1.py:90
+msgid "Segunda menor"
+msgstr ""
+
+#: ipm-p1.py:91
+msgid "Segunda mayor"
+msgstr ""
+
+#: ipm-p1.py:92
+msgid "Tercera menor"
+msgstr ""
+
+#: ipm-p1.py:93
+msgid "Tercera mayor"
+msgstr ""
+
+#: ipm-p1.py:94
+msgid "Cuarta justa"
+msgstr ""
+
+#: ipm-p1.py:95
+msgid "Cuarta aumentada"
+msgstr ""
+
+#: ipm-p1.py:96
+msgid "Quinta justa"
+msgstr ""
+
+#: ipm-p1.py:97
+msgid "Sexta menor"
+msgstr ""
+
+#: ipm-p1.py:98
+msgid "Sexta mayor"
+msgstr ""
+
+#: ipm-p1.py:99
+msgid "Séptima menor"
+msgstr ""
+
+#: ipm-p1.py:100
+msgid "Séptima mayor"
+msgstr ""
+
+#: ipm-p1.py:101
+msgid "Octava"
+msgstr ""
+
+#: ipm-p1.py:139
+msgid "ascendente"
+msgstr ""
+
+#: ipm-p1.py:139
+msgid "descendente"
+msgstr ""
+
+#: ipm-p1.py:153
+msgid "De \""
+msgstr ""
+
+#: ipm-p1.py:154
+msgid "\" a \""
+msgstr ""
+
+#: ipm-p1.py:156
+msgid "Semitono"
+msgstr ""
+
+#: ipm-p1.py:156
+msgid "Semitonos"
+msgstr ""
