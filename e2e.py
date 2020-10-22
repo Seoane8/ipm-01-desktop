@@ -37,9 +37,17 @@ def tree(object, path= ()):
     for i, child in children(object):
         yield from tree(child, path + (i,))
 
+def dump_tree(obj):
+        for path, node in tree(obj):
+            print("  "*len(path), path, " ", f"{node.get_role_name()}({node.get_name()})", sep = "")
+
 def do_action(obj, name):
     for i in range(0, obj.get_n_actions()):
         if obj.get_action_name(i) == name:
             obj.do_action(i)
             return
     raise RuntimeError(f"{obj} no tiene una acción {name}")
+
+def dump_actions(obj):
+    for i in range(0, obj.get_n_actions()):
+        print(obj.get_action_name(i))
