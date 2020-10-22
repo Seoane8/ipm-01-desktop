@@ -63,36 +63,23 @@ def when_he_realizado_la_seleccion_resultado1(ctx):
 if __name__ == '__main__':
 	sut_path = sys.argv[1]
 	initial_ctx = Ctx(path= sut_path, process= None, app= None)
-
-	show("""
-		GIVEN he lanzado la aplicacion
-		""")
-	ctx = initial_ctx
-	try:
-		ctx = given_he_lanzado_la_aplicacion(ctx)
-		show_passed()
-	except Exception as e:
-		show_not_passed(e)
 	
+	ctx = initial_ctx
+
 	show("""
 		GIVEN he lanzado la aplicacion
-		WHEN pulso el boton	3M
+		WHEN selecciono 3M en el deplegable
 		AND WHEN pulso el boton Asc
-		""")
-
-	try:
-		ctx = when_pulso_el_boton_Asc(ctx)
-		ctx = when_pulso_el_boton_3M(ctx)
-		show_passed()
-	except Exception as e:
-		show_not_passed(e)
-
-	show("""
-		THEN Muestra los resultados apropiados
+		THEN Muestra 'Tercera mayor ascendente'
+		AND Muestra 'De "do" a "mi" (4 Semitonos)'
+		AND Muestra 'La primavera (Vivaldi)'
 	""")
 
 
 	try:
+		ctx = given_he_lanzado_la_aplicacion(ctx)
+		ctx = when_pulso_el_boton_Asc(ctx)
+		ctx = when_pulso_el_boton_3M(ctx)
 		ctx = when_he_realizado_la_seleccion_intervalo(ctx)
 		ctx = when_he_realizado_la_seleccion_tonos(ctx)
 		ctx = when_he_realizado_la_seleccion_resultado1(ctx)
