@@ -199,7 +199,7 @@ class ComboBoxWindow(Gtk.Window):
 		
 		# Add intervals names 
 		self.spinner.stop()
-		self.notes_distance.set_label("Seleccione un intervalo")
+		self.notes_distance.set_label(_("Seleccione un intervalo"))
 		for i in intervals.keys():
 			self.intervals[i] = [intervals[i], int_name[i]]
 			self.intervals_combo.append_text(i)
@@ -208,7 +208,7 @@ class ComboBoxWindow(Gtk.Window):
 		dialog = Gtk.MessageDialog(parent = self,
 									message_type = Gtk.MessageType.ERROR,
 									buttons = Gtk.ButtonsType.CLOSE,
-									text = "Error en la conexión con la red, inténtelo más tarde")
+									text = _("Error en la conexión con la red, inténtelo más tarde"))
 		dialog.run()
 		dialog.destroy()
 		Gtk.main_quit()
