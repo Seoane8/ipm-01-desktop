@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  01-desktop-Seoane8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-22 17:52+0200\n"
-"PO-Revision-Date: 2020-10-22 17:53+0200\n"
+"POT-Creation-Date: 2020-10-22 22:06+0200\n"
+"PO-Revision-Date: 2020-10-22 22:07+0200\n"
 "Last-Translator: Guille <g.somoza@udc.es>\n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -17,134 +17,142 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ipm-p1.py:26
+#: ipm-p1.py:29
 msgid "do"
 msgstr "C"
 
-#: ipm-p1.py:26
+#: ipm-p1.py:29
 msgid "do♯/re♭"
 msgstr "C♯/D♭"
 
-#: ipm-p1.py:26
+#: ipm-p1.py:29
 msgid "re"
 msgstr "D"
 
-#: ipm-p1.py:26
+#: ipm-p1.py:29
 msgid "re♯/mi♭"
 msgstr "D♯/E♭"
 
-#: ipm-p1.py:26
+#: ipm-p1.py:29
 msgid "mi"
 msgstr "E"
 
-#: ipm-p1.py:26
+#: ipm-p1.py:29
 msgid "fa"
 msgstr "F"
 
-#: ipm-p1.py:26
+#: ipm-p1.py:30
 msgid "fa♯/sol♭"
 msgstr "F♯/G♭"
 
-#: ipm-p1.py:26
+#: ipm-p1.py:30
 msgid "sol"
 msgstr "G"
 
-#: ipm-p1.py:26
+#: ipm-p1.py:30
 msgid "sol♯/la♭"
 msgstr "G♯/A♭"
 
-#: ipm-p1.py:26
+#: ipm-p1.py:30
 msgid "la"
 msgstr "A"
 
-#: ipm-p1.py:26
+#: ipm-p1.py:30
 msgid "la♯/si♭"
 msgstr "A♯/B♭"
 
-#: ipm-p1.py:26
+#: ipm-p1.py:30
 msgid "si"
 msgstr "B"
 
-#: ipm-p1.py:29
+#: ipm-p1.py:34
 msgid "Intervalos"
 msgstr "Intervals"
 
-#: ipm-p1.py:64
+#: ipm-p1.py:67
 msgid "Titulo"
 msgstr "Title"
 
-#: ipm-p1.py:66
+#: ipm-p1.py:69
 msgid "Favorita"
 msgstr "Favorite"
 
-#: ipm-p1.py:89
-msgid "Segunda menor"
-msgstr "Minor second"
-
-#: ipm-p1.py:90
-msgid "Segunda mayor"
-msgstr "Major second"
-
-#: ipm-p1.py:91
-msgid "Tercera menor"
-msgstr "Minor third"
-
-#: ipm-p1.py:92
-msgid "Tercera mayor"
-msgstr "Major third"
-
-#: ipm-p1.py:93
-msgid "Cuarta justa"
-msgstr "Perfect fourth"
-
-#: ipm-p1.py:94
-msgid "Cuarta aumentada"
-msgstr "Augmented fourth"
-
-#: ipm-p1.py:95
-msgid "Quinta justa"
-msgstr "Perfect fifth"
-
-#: ipm-p1.py:96
-msgid "Sexta menor"
-msgstr "Minor sixth"
-
-#: ipm-p1.py:97
-msgid "Sexta mayor"
-msgstr "Major sixth"
-
-#: ipm-p1.py:98
-msgid "Séptima menor"
-msgstr "Minor seventh"
-
-#: ipm-p1.py:99
-msgid "Séptima mayor"
-msgstr "Major seventh"
-
-#: ipm-p1.py:100
-msgid "Octava"
-msgstr "Perfect octave"
-
-#: ipm-p1.py:138
+#: ipm-p1.py:152
 msgid "ascendente"
 msgstr "ascending"
 
-#: ipm-p1.py:138
+#: ipm-p1.py:152
 msgid "descendente"
 msgstr "descending"
 
-#: ipm-p1.py:153
+#: ipm-p1.py:166
 msgid "De \""
 msgstr "From \""
 
-#: ipm-p1.py:154
+#: ipm-p1.py:167
 msgid "\" a \""
 msgstr "\" to \""
 
-#: ipm-p1.py:155
+#: ipm-p1.py:169
 msgid "Semitono"
 msgstr "Semitone"
 
-#: ipm-p1.py:155
+#: ipm-p1.py:169
 msgid "Semitonos"
 msgstr "Semitones"
+
+#: ipm-p1.py:187
+msgid "Segunda menor"
+msgstr "Minor second"
+
+#: ipm-p1.py:188
+msgid "Segunda mayor"
+msgstr "Major second"
+
+#: ipm-p1.py:189
+msgid "Tercera menor"
+msgstr "Minor third"
+
+#: ipm-p1.py:190
+msgid "Tercera mayor"
+msgstr "Major third"
+
+#: ipm-p1.py:191
+msgid "Cuarta justa"
+msgstr "Perfect fourth"
+
+#: ipm-p1.py:192
+msgid "Cuarta aumentada"
+msgstr "Augmented fourth"
+
+#: ipm-p1.py:193
+msgid "Quinta justa"
+msgstr "Perfect fifth"
+
+#: ipm-p1.py:194
+msgid "Sexta menor"
+msgstr "Minor sixth"
+
+#: ipm-p1.py:195
+msgid "Sexta mayor"
+msgstr "Major sixth"
+
+#: ipm-p1.py:196
+msgid "Séptima menor"
+msgstr "Minor seventh"
+
+#: ipm-p1.py:197
+msgid "Séptima mayor"
+msgstr "Major seventh"
+
+#: ipm-p1.py:198
+msgid "Octava"
+msgstr "Perfect octave"
+
+#: ipm-p1.py:202
+msgid "Seleccione un intervalo"
+msgstr "Select an interval"
+
+#: ipm-p1.py:211
+msgid "Error en la conexión con la red, inténtelo más tarde"
+msgstr "Error connecting to the network. Try again later."
