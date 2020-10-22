@@ -179,7 +179,7 @@ class ComboBoxWindow(Gtk.Window):
 	
 	def clear_view(self):
 		self.tittle.set_label("")
-		self.notes_distance.set_label("Seleccione un intervalo")
+		self.notes_distance.set_label(_("Seleccione un intervalo"))
 		self.songs_liststore.clear()
 
 	def change_view_combo(self, intervals):

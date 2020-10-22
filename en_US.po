@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  01-desktop-Seoane8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-22 22:06+0200\n"
-"PO-Revision-Date: 2020-10-22 22:07+0200\n"
+"POT-Creation-Date: 2020-10-22 22:25+0200\n"
+"PO-Revision-Date: 2020-10-22 22:26+0200\n"
 "Last-Translator: Guille <g.somoza@udc.es>\n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -101,6 +101,10 @@ msgstr "Semitone"
 msgid "Semitonos"
 msgstr "Semitones"
 
+#: ipm-p1.py:182
+msgid "Seleccione un intervalo"
+msgstr "Select an interval"
+
 #: ipm-p1.py:187
 msgid "Segunda menor"
 msgstr "Minor second"
@@ -149,10 +153,7 @@ msgstr "Major seventh"
 msgid "Octava"
 msgstr "Perfect octave"
 
-#: ipm-p1.py:202
-msgid "Seleccione un intervalo"
-msgstr "Select an interval"
-
 #: ipm-p1.py:211
 msgid "Error en la conexión con la red, inténtelo más tarde"
 msgstr "Error connecting to the network. Try again later."
+
