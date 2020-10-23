@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 
 from urllib.request import Request, urlopen
+import json
 import locale
 import gettext
-import json
 
 _ = gettext.gettext
 
 class Model:
     active_interval = None
     active_direction = None
-    notes = notes = [_('do'),_('do♯/re♭'),_('re'),_('re♯/mi♭'),_('mi'),_('fa')
-			,_('fa♯/sol♭'),_('sol'),_('sol♯/la♭'),_('la'),_('la♯/si♭'),_('si')]
+    notes = notes = [_('do'),_('do♯/re♭'),_('re'),_('re♯/mi♭'),_('mi'),_('fa'),_('fa♯/sol♭'),_('sol'),_('sol♯/la♭'),_('la'),_('la♯/si♭'),_('si')]
     url = "http://127.0.0.1:5000/"
     intervals = {}
 
@@ -39,45 +38,45 @@ class Model:
 
             for i in data['data'].keys():
                 self.intervals[i] = [data['data'][i], int_name[i]]
-
+            
             fun(False, self.intervals.keys())
-        except Exception as e:
+        except Exception:
             fun(True, None)
 
     def songs_request(self, fun):
         # Get interval songs
         try:
-            req = Request(self.url+'songs/'+self.interv_active+'/'
-                            +self.ad_active.get_label().lower())
+            req = Request(self.url+'songs/'+self.active_interval+'/'
+                            +self.active_direction.lower())
             response =  urlopen(req)
             data = response.read()
             data = json.loads(data)
             fun(False, data['data'])
-        except Exception as e:
-            fun(False, None)
+        except Exception:
+            fun(True, None)
 
-    def get_notes(self, distance):
+    def get_notes(self, distance, direction):
         num_dist = 0
         for i in distance.split('T'):
             if len(i) == 1:
                 num_dist += int(i)*2
             elif len(i) == 2:
                 num_dist += int(i[0])
-        if (self.active_direction=='Des'):
+        if (direction=='Des'):
             num_dist *= -1
-        return num_dist
+        return abs(num_dist), self.notes[0], self.notes[num_dist%len(self.notes)]
 
     def get_intervals(self):
         return self.intervals
 
     def get_interval(self):
-        return self.active_direction
+        return self.active_interval
 
     def get_direction(self):
         return self.active_direction
 
     def set_interval(self, interval):
-        self.interval = interval
+        self.active_interval = interval
     
     def set_direction(self, direction):
-        self.direction = direction
+        self.active_direction = direction
