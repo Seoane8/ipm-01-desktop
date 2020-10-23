@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import locale
 import gettext
@@ -88,8 +89,8 @@ class Presenter:
                 + interval[1] 
                 + ' '+(_("ascendente") if active_direction=='Asc' else _("descendente"))
                 + '</span>')
-        notes_distance = (_('De "')+note1
-                        + _('" a "')+note2
+        notes_distance = (_('De "')+_(note1)
+                        + _('" a "')+_(note2)
                         + '" ('+str(distance)
                         +' '+(_('Semitono') if distance==1 else _('Semitonos'))+')')
 

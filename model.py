@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 from urllib.request import Request, urlopen
 import json
@@ -10,7 +11,7 @@ _ = gettext.gettext
 class Model:
     active_interval = None
     active_direction = None
-    notes = notes = [_('do'),_('do♯/re♭'),_('re'),_('re♯/mi♭'),_('mi'),_('fa'),_('fa♯/sol♭'),_('sol'),_('sol♯/la♭'),_('la'),_('la♯/si♭'),_('si')]
+    notes = notes = [('do'), ('do♯/re♭'),('re'),('re♯/mi♭'),('mi'),('fa'),('fa♯/sol♭'),('sol'),('sol♯/la♭'),('la'),('la♯/si♭'),('si')]
     url = "http://127.0.0.1:5000/"
     intervals = {}
 
