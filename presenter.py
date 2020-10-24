@@ -34,7 +34,7 @@ class Presenter:
                 self.view.deactivate(active_button)
             self.model.set_direction(button.get_label())
             if active_interval is not None:
-                self.set_tittle_distance(active_interval, active_button)
+                self.set_tittle_distance(active_interval, button.get_label())
         else:
             self.view.show_need_entry()
             self.model.set_direction(None)
