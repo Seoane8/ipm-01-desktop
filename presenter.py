@@ -51,12 +51,12 @@ class Presenter:
         
         self.set_tittle_distance(active_interval, active_direction)
 
-    def on_link_selection(self, selection):
+    def on_link_selection(self, tree, treeiter, path):
 		# Open url link if exists
-        model, treeiter = selection.get_selected()
+        model = tree.get_model()
         if ((treeiter is not None) and (model[treeiter][1] != "")):
             import webbrowser
-            webbrowser.open(model[treeiter][1])
+            threading.Thread(target=webbrowser.open, daemon=True, args=(model[treeiter][1], )).start()
 
     def set_songs(self, err, songs):
         if err:

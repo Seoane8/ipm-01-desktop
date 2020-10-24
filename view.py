@@ -33,18 +33,19 @@ class View:
 
         self.notes_distance = Gtk.Label(label = "")
 
-        self.songs_liststore = Gtk.ListStore(str, str, str)
+        songs_liststore = Gtk.ListStore(str, str, str)
 
         # Create TreeView with songs list as model
-        tree = Gtk.TreeView(self.songs_liststore)
+        self.tree = Gtk.TreeView(songs_liststore)
         renderer = Gtk.CellRendererText()
         column = Gtk.TreeViewColumn(_("Titulo"), renderer, markup=0)
-        tree.append_column(column)
+        self.tree.append_column(column)
         column = Gtk.TreeViewColumn(_("Favorita"), renderer, text=2)
-        tree.append_column(column)
+        self.tree.append_column(column)
 
         # Select row action
-        self.selection = tree.get_selection()
+        selection = self.tree.get_selection()
+        selection.set_mode(Gtk.SelectionMode.NONE)
 
         hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         hbox.pack_start(self.intervals_combo, True, True, 0)
@@ -56,7 +57,7 @@ class View:
         vbox.pack_start(self.spinner, False, False, 10)
         vbox.pack_start(self.tittle, False, False, 10)
         vbox.pack_start(self.notes_distance, False, False, 10)
-        vbox.add(tree)
+        vbox.add(self.tree)
         
         self.win = Gtk.Window(title=_("Intervalos"))
         self.win.set_default_size(500,400)
@@ -75,7 +76,7 @@ class View:
         self.intervals_combo.connect('changed', fun)
 
     def connect_link_selection(self, fun):
-        self.selection.connect('changed', fun)
+        self.tree.connect('row-activated', fun)
 
 
     def show_waiting(self, b):
@@ -100,7 +101,7 @@ class View:
 
     def show_need_entry(self):
         self.tittle.set_label("")
-        self.songs_liststore.clear()
+        self.tree.get_model().clear()
         self.notes_distance.set_label(_("Seleccione un intervalo"))
 
     def deactivate(self, button):
@@ -123,10 +124,11 @@ class View:
                 raise TypeError(f"update_view() got an unexpected keyword argument '{name}'")
     
     def add_songs(self, songs):
-        self.songs_liststore.clear()
+        model = self.tree.get_model()
+        model.clear()
         self.show_waiting(False)
         for song in songs:
-            self.songs_liststore.append(song)
+            model.append(song)
 
     def add_intervals(self, intervals):
         self.show_waiting(False)
