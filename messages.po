@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-22 22:25+0200\n"
+"POT-Creation-Date: 2020-10-23 18:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,142 +17,142 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ipm-p1.py:29
+#: model.py:14
 msgid "do"
 msgstr ""
 
-#: ipm-p1.py:29
+#: model.py:14
 msgid "do♯/re♭"
 msgstr ""
 
-#: ipm-p1.py:29
+#: model.py:14
 msgid "re"
 msgstr ""
 
-#: ipm-p1.py:29
+#: model.py:14
 msgid "re♯/mi♭"
 msgstr ""
 
-#: ipm-p1.py:29
+#: model.py:14
 msgid "mi"
 msgstr ""
 
-#: ipm-p1.py:29
+#: model.py:14
 msgid "fa"
 msgstr ""
 
-#: ipm-p1.py:30
+#: model.py:14
 msgid "fa♯/sol♭"
 msgstr ""
 
-#: ipm-p1.py:30
+#: model.py:14
 msgid "sol"
 msgstr ""
 
-#: ipm-p1.py:30
+#: model.py:14
 msgid "sol♯/la♭"
 msgstr ""
 
-#: ipm-p1.py:30
+#: model.py:14
 msgid "la"
 msgstr ""
 
-#: ipm-p1.py:30
+#: model.py:14
 msgid "la♯/si♭"
 msgstr ""
 
-#: ipm-p1.py:30
+#: model.py:14
 msgid "si"
 msgstr ""
 
-#: ipm-p1.py:34
-msgid "Intervalos"
-msgstr ""
-
-#: ipm-p1.py:67
-msgid "Titulo"
-msgstr ""
-
-#: ipm-p1.py:69
-msgid "Favorita"
-msgstr ""
-
-#: ipm-p1.py:152
-msgid "ascendente"
-msgstr ""
-
-#: ipm-p1.py:152
-msgid "descendente"
-msgstr ""
-
-#: ipm-p1.py:166
-msgid "De \""
-msgstr ""
-
-#: ipm-p1.py:167
-msgid "\" a \""
-msgstr ""
-
-#: ipm-p1.py:169
-msgid "Semitono"
-msgstr ""
-
-#: ipm-p1.py:169
-msgid "Semitonos"
-msgstr ""
-
-#: ipm-p1.py:182 ipm-p1.py:202
-msgid "Seleccione un intervalo"
-msgstr ""
-
-#: ipm-p1.py:187
+#: model.py:27
 msgid "Segunda menor"
 msgstr ""
 
-#: ipm-p1.py:188
+#: model.py:28
 msgid "Segunda mayor"
 msgstr ""
 
-#: ipm-p1.py:189
+#: model.py:29
 msgid "Tercera menor"
 msgstr ""
 
-#: ipm-p1.py:190
+#: model.py:30
 msgid "Tercera mayor"
 msgstr ""
 
-#: ipm-p1.py:191
+#: model.py:31
 msgid "Cuarta justa"
 msgstr ""
 
-#: ipm-p1.py:192
+#: model.py:32
 msgid "Cuarta aumentada"
 msgstr ""
 
-#: ipm-p1.py:193
+#: model.py:33
 msgid "Quinta justa"
 msgstr ""
 
-#: ipm-p1.py:194
+#: model.py:34
 msgid "Sexta menor"
 msgstr ""
 
-#: ipm-p1.py:195
+#: model.py:35
 msgid "Sexta mayor"
 msgstr ""
 
-#: ipm-p1.py:196
+#: model.py:36
 msgid "Séptima menor"
 msgstr ""
 
-#: ipm-p1.py:197
+#: model.py:37
 msgid "Séptima mayor"
 msgstr ""
 
-#: ipm-p1.py:198
+#: model.py:38
 msgid "Octava"
 msgstr ""
 
-#: ipm-p1.py:211
+#: presenter.py:90
+msgid "ascendente"
+msgstr ""
+
+#: presenter.py:90
+msgid "descendente"
+msgstr ""
+
+#: presenter.py:92
+msgid "De \""
+msgstr ""
+
+#: presenter.py:93
+msgid "\" a \""
+msgstr ""
+
+#: presenter.py:95
+msgid "Semitono"
+msgstr ""
+
+#: presenter.py:95
+msgid "Semitonos"
+msgstr ""
+
+#: view.py:41
+msgid "Titulo"
+msgstr ""
+
+#: view.py:43
+msgid "Favorita"
+msgstr ""
+
+#: view.py:61
+msgid "Intervalos"
+msgstr ""
+
+#: view.py:92
 msgid "Error en la conexión con la red, inténtelo más tarde"
+msgstr ""
+
+#: view.py:104
+msgid "Seleccione un intervalo"
 msgstr ""
