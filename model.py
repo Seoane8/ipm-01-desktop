@@ -15,46 +15,40 @@ class Model:
     url = "http://127.0.0.1:5000/"
     intervals = {}
 
-    def intervals_request(self, fun):
-        try:
-            # Get intervals and distance
-            req = Request(self.url+'intervals')
-            response =  urlopen(req)
-            data = response.read()
-            data = json.loads(data)
+    def intervals_request(self):
+        # Get intervals and distance
+        req = Request(self.url+'intervals')
+        response =  urlopen(req)
+        data = response.read()
+        data = json.loads(data)
 
-            # Defines a dict with the intervals names
-            int_name = {"2m": _("Segunda menor"),
-                        "2M": _("Segunda mayor"),
-                        "3m": _("Tercera menor"),
-                        "3M": _("Tercera mayor"),
-                        "4j": _("Cuarta justa"),
-                        "4aum": _("Cuarta aumentada"),
-                        "5j": _("Quinta justa"),
-                        "6m": _("Sexta menor"),
-                        "6M": _("Sexta mayor"),
-                        "7m": _("Séptima menor"),
-                        "7M": _("Séptima mayor"),
-                        "8a": _("Octava")}
+        # Defines a dict with the intervals names
+        int_name = {"2m": _("Segunda menor"),
+                    "2M": _("Segunda mayor"),
+                    "3m": _("Tercera menor"),
+                    "3M": _("Tercera mayor"),
+                    "4j": _("Cuarta justa"),
+                    "4aum": _("Cuarta aumentada"),
+                    "5j": _("Quinta justa"),
+                    "6m": _("Sexta menor"),
+                    "6M": _("Sexta mayor"),
+                    "7m": _("Séptima menor"),
+                    "7M": _("Séptima mayor"),
+                    "8a": _("Octava")}
 
-            for i in data['data'].keys():
-                self.intervals[i] = [data['data'][i], int_name[i]]
-            
-            fun(False, self.intervals.keys())
-        except Exception:
-            fun(True, None)
+        for i in data['data'].keys():
+            self.intervals[i] = [data['data'][i], int_name[i]]
 
-    def songs_request(self, fun):
+        return self.intervals.keys()
+
+    def songs_request(self):
         # Get interval songs
-        try:
-            req = Request(self.url+'songs/'+self.active_interval+'/'
-                            +self.active_direction.lower())
-            response =  urlopen(req)
-            data = response.read()
-            data = json.loads(data)
-            fun(False, data['data'])
-        except Exception:
-            fun(True, None)
+        req = Request(self.url+'songs/'+self.active_interval+'/'
+                        +self.active_direction.lower())
+        response =  urlopen(req)
+        data = response.read()
+        data = json.loads(data)
+        return data['data']
 
     def get_notes(self, distance, direction):
         num_dist = 0

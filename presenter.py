@@ -11,7 +11,7 @@ class Presenter:
 
     def main(self):
         self.view.show_waiting(True)
-        threading.Thread(target=self.model.intervals_request, daemon=True, args=(self.set_intervals, )).start()
+        threading.Thread(target=self.set_intervals, daemon=True).start()
         self.view.show_all()
         self.view.main()
 
@@ -58,30 +58,29 @@ class Presenter:
             import webbrowser
             threading.Thread(target=webbrowser.open, daemon=True, args=(model[treeiter][1], )).start()
 
-    def set_songs(self, err, songs):
-        if err:
+    def set_songs(self):
+        try:
+            toret = []
+            for song in self.model.songs_request():
+                if song[1] != "":
+                    name = '<span underline="single">'+song[0]+'</span>'
+                else:
+                    name = song[0]
+                toret.append([name, song[1], song[2]])
+            self.view.update_view(songs = toret)
+        except Exception:
             self.view.show_error()
-            return
-        toret = []
-        for song in songs:
-            if (song[1] != ""):
-                name = '<span underline="single">'+song[0]+'</span>'
-            else:
-                name = song[0]
-            toret.append([name, song[1], song[2]])
-        self.view.update_view(songs = toret)
 
-    def set_intervals(self, err, intervals):
-        if err:
+    def set_intervals(self):
+        try:
+            self.view.update_view(intervals = self.model.intervals_request())
+        except Exception:
             self.view.show_error()
-            return
-        
-        self.view.update_view(intervals = intervals)
         
 
     def set_tittle_distance(self, active_interval, active_direction):
         self.view.show_waiting(True)
-        threading.Thread(target=self.model.songs_request, daemon=True, args=(self.set_songs, )).start()
+        threading.Thread(target=self.set_songs, daemon=True).start()
         interval = self.model.get_intervals()[active_interval]
         distance, note1, note2 = self.model.get_notes(interval[0], active_direction)
 
